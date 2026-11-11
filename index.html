@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScamShield AI — Family Digital Fraud Defender | পরিবার সুরক্ষা</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0a0f1d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Bengali:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="logo-area">
+        <div class="logo-icon">🛡️</div>
+        <div class="logo-text">
+          <h1>ScamShield AI</h1>
+          <p>Family Digital Fraud Defender • পরিবার সুরক্ষা</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <button id="fontToggleBtn" class="btn-font-toggle" title="Toggle large senior font">🔤 বড় ফন্ট</button>
+
+        <select id="langSelect" class="lang-select" aria-label="Select Language">
+          <option value="bn" selected>বাংলা (Bengali)</option>
+          <option value="hi">हिन्दी (Hindi)</option>
+          <option value="en">English (Global)</option>
+        </select>
+
+        <button id="vipBtn" class="btn-vip">⭐️ ফ্যামিলি ভিআইপি পাস</button>
+      </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+      <h2 id="heroTitle">আপনার পরিবার ও পিতা-মাতাকে ডিজিটাল প্রতারণা থেকে রক্ষা করুন</h2>
+      <p id="heroDesc">হোয়াটসঅ্যাপ, এসএমএস বা ইমেলে পাওয়া যেকোনো সন্দেহজনক মেসেজ বা লিঙ্ক এখানে পেস্ট করুন। মাত্র ৩ সেকেন্ডে জেনে নিন এটি আসল নাকি টাকা হাতিয়ে নেওয়ার ফাঁদ।</p>
+      <div class="stat-pills">
+        <span class="stat-pill" id="statChecks">🛡️ ২০,০০০+ প্রতারণা প্যাটার্ন যাচাইকৃত</span>
+        <span class="stat-pill" id="statSafe">🇮🇳 সাইবার ক্রাইম হেল্পলাইন ১৯৩০ সমর্থিত</span>
+        <span class="stat-pill" id="checksRemainingBadge" style="color: #60a5fa; border-color: #3b82f6;">5 Free Checks Left</span>
+      </div>
+    </section>
+
+    <!-- Scanner Input Card -->
+    <section class="scanner-card">
+      <div class="input-header">
+        <label id="inputLabel" for="scamInput">যাচাই করার মেসেজ বা লিঙ্ক পেস্ট করুন:</label>
+      </div>
+
+      <!-- Quick Test Samples -->
+      <div class="sample-chips">
+        <span style="font-size: 0.75rem; color: #94a3b8; align-self: center; margin-right: 0.25rem;">পরীক্ষা করার নমুনা:</span>
+        <button class="sample-chip" data-sample="electricity" id="sampleElectricity">⚡ বিদ্যুৎ কাটার মেসেজ</button>
+        <button class="sample-chip" data-sample="post" id="samplePost">📦 পার্সেল আটকের মেসেজ</button>
+        <button class="sample-chip" data-sample="kyc" id="sampleKYC">🏦 ব্যাঙ্ক কেওয়াইসি ব্লক</button>
+        <button class="sample-chip" data-sample="telegram" id="sampleTelegram">💼 ঘরে বসে আয় (টেলিগ্রাম)</button>
+        <button class="sample-chip" data-sample="legit" id="sampleLegit">✅ আসল ব্যাঙ্ক ওটিপি</button>
+      </div>
+
+      <textarea id="scamInput" rows="4"></textarea>
+
+      <div class="action-bar">
+        <button id="checkBtn" class="btn-primary">
+          <span>🔍 প্রতারণা পরীক্ষা করুন</span>
+        </button>
+        <button id="clearBtn" class="btn-clear">মুছে ফেলুন</button>
+      </div>
+    </section>
+
+    <!-- Dynamic Traffic-Light Result Card -->
+    <section id="resultContainer" class="result-container">
+      <div id="trafficLightCard" class="traffic-light-card danger">
+        <div class="verdict-header">
+          <div id="verdictSignal" class="signal-beacon">🚨</div>
+          <div class="verdict-title">
+            <h3 id="verdictTitleText">🚨 সাবধান! ১০০% নিশ্চিত প্রতারণা</h3>
+            <div id="confidenceScore" class="confidence">Threat Confidence Index: 95% FRAUD MATCH</div>
+          </div>
+        </div>
+
+        <div class="diagnosis-box">
+          <h4 id="labelDiagnosis">🔍 বিশ্লেষণী পর্যবেক্ষণ:</h4>
+          <p id="diagnosisText">বিশ্লেষণ লোড হচ্ছে...</p>
+        </div>
+
+        <div id="harmSection" class="diagnosis-box" style="margin-bottom: 1.25rem;">
+          <h4 id="labelWhatHappens">⚠️ লিঙ্কে ক্লিক করলে বা কথা শুনলে কী হবে?</h4>
+          <p id="harmText">ক্ষতির বিবরণ...</p>
+        </div>
+
+        <div class="action-guidance">
+          <h4 id="labelActionPlan">🛡️ এখন আপনার করণীয় পদক্ষেপ:</h4>
+          <ul>
+            <li>মেসেজটিতে দেওয়া কোনো ফোন নম্বরে কল করবেন না বা লিঙ্কে ক্লিক করবেন না।</li>
+            <li>হোয়াটসঅ্যাপে প্রেরককে অবিলম্বে ব্লক (Block) এবং রিপোর্ট (Report) করুন।</li>
+            <li>যদি ইতিমধ্যে কোনো টাকা কেটে নেওয়া হয়ে থাকে, তবে ১ ঘণ্টার মধ্যে <strong>১৯৩০</strong> হেল্পলাইনে ফোন করুন।</li>
+          </ul>
+          <button id="copyReplyBtn" class="copy-reply-btn">প্রতারককে উত্তর দেওয়ার মেসেজ কপি করুন</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Emergency Cyber Helpline Bar -->
+    <section class="helpline-bar">
+      <div class="helpline-info">
+        <h4>🚨 জাতীয় সাইবার ক্রাইম ইমার্জেন্সি হেল্পলাইন (National Helpline)</h4>
+        <p>টাকা খোয়া গেলে বা ডিজিটাল ব্ল্যাকমেইলের শিকার হলে অবিলম্বে কল করুন বা অনলাইনে রিপোর্ট দায়ের করুন।</p>
+      </div>
+      <div class="helpline-cta">
+        <a href="tel:1930">📞 কল করুন: 1930 (টোল ফ্রি)</a>
+        <a href="https://cybercrime.gov.in" target="_blank" rel="noopener noreferrer" style="background: #2563eb; margin-left: 0.5rem;">🌐 cybercrime.gov.in</a>
+      </div>
+    </section>
+
+    <!-- Scam Directory & Knowledge Base -->
+    <section class="directory-section">
+      <h3 class="section-title">ভারতে ২০২৬ সালের শীর্ষ ডিজিটাল প্রতারণার রূপরেখা</h3>
+      <p class="section-desc">বয়স্ক ও পরিবারের সদস্যদের এই সাধারণ ফাঁদগুলো সম্পর্কে আগাম সচেতন করুন:</p>
+
+      <div class="scam-types-grid">
+        <div class="scam-card">
+          <div class="scam-card-header">
+            <span class="icon">⚡</span>
+            <h5>বিদ্যুৎ বিচ্ছিন্নকরণ প্রতারণা</h5>
+          </div>
+          <p>বকেয়া বিলের অজুহাতে রাত ৯:৩০ টায় লাইন কাটার হুমকি দিয়ে এপিকে (APK) ডাউনলোড বা টাকা দাবি করা হয়।</p>
+        </div>
+
+        <div class="scam-card">
+          <div class="scam-card-header">
+            <span class="icon">📦</span>
+            <h5>ইন্ডিয়া পোস্ট ও কুরিয়ার ফাঁদ</h5>
+          </div>
+          <p>ভুল ঠিকানার কারণে পার্সেল আটকে থাকার ভুয়ো এসএমএস পাঠিয়ে মাত্র ₹২৫ কার্ড পেমেন্টের মাধ্যমে ব্যাঙ্ক তথ্য হাতিয়ে নেওয়া।</p>
+        </div>
+
+        <div class="scam-card">
+          <div class="scam-card-header">
+            <span class="icon">🏦</span>
+            <h5>ব্যাঙ্ক অ্যাকাউন্ট ও প্যান কেওয়াইসি</h5>
+          </div>
+          <p>একাউন্ট সাময়িক ব্লক হয়েছে বলে ভুয়ো নেট-ব্যাঙ্কিং লিঙ্কে আইডি ও পাসওয়ার্ড হাতিয়ে নেওয়ার চেষ্টা।</p>
+        </div>
+
+        <div class="scam-card">
+          <div class="scam-card-header">
+            <span class="icon">💼</span>
+            <h5>ঘরে বসে আয় ও টেলিগ্রাম টাস্ক</h5>
+          </div>
+          <p>ইউটিউব ভিডিও লাইক করে দিনে ₹৫,০০০ আয়ের লোভ দেখিয়ে পরে লক্ষ লক্ষ টাকার ডিপোজিট লুটে নেওয়া।</p>
+        </div>
+
+        <div class="scam-card">
+          <div class="scam-card-header">
+            <span class="icon">👮‍♂️</span>
+            <h5>ভুয়ো পুলিশ ও 'ডিজিটাল অ্যারেস্ট'</h5>
+          </div>
+          <p>পার্সেলে মাদক বা সিমে বেআইনি কাজের ভয় দেখিয়ে স্কাইপ/হোয়াটসঅ্যাপে ভুয়ো থানায় সাজিয়ে টাকা তোলা।</p>
+        </div>
+
+        <div class="scam-card">
+          <div class="scam-card-header">
+            <span class="icon">💳</span>
+            <h5>ইউপিআই রিভার্স ও কিউআর লটারি</h5>
+          </div>
+          <p>ক্যাশব্যাক বা লটারির টাকা পাওয়ার নামে কিউআর কোড স্ক্যান করিয়ে অ্যাকাউন্ট থেকে টাকা কেটে নেওয়া।</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIP Modal -->
+    <div id="vipModal" class="modal-overlay">
+      <div class="modal-content" style="max-height: 90vh; overflow-y: auto;">
+        <button id="closeModalBtn" class="modal-close" aria-label="Close Modal">&times;</button>
+        <div style="text-align: center; margin-bottom: 1.25rem;">
+          <div style="font-size: 2.2rem; margin-bottom: 0.25rem;">⭐️</div>
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff;">ফ্যামিলি প্রোটেকশন ভিআইপি পাস</h3>
+          <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 0.25rem;">সম্পূর্ণ পরিবারের জন্য আজীবন আনলিমিটেড স্ক্যাম স্ক্যানার ও নিরাপত্তা</p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.05); padding: 0.85rem; border-radius: 12px; margin-bottom: 1.25rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+            <span style="font-weight: 700; color: #f8fafc; font-size: 0.9rem;">লাইফটাইম ফ্যামিলি কভার:</span>
+            <span style="font-size: 1.15rem; font-weight: 800; color: #f59e0b;">₹২৯৯ / $৩.৯৯</span>
+          </div>
+          <ul style="padding-left: 1.2rem; font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
+            <li>আজীবন আনলিমিটেড মেসেজ ও লিঙ্ক স্ক্যান</li>
+            <li>হোয়াটসঅ্যাপ ডিরেক্ট ফরোয়ার্ড যাচাইকরণ সহায়তা</li>
+            <li>পরিবারের প্রবীণ সদস্যদের জন্য ২৪x৭ ফোন নিরাপত্তা গাইড</li>
+          </ul>
+        </div>
+
+        <!-- Payment Option 1: Direct Indian UPI / QR Code -->
+        <div style="background: #0f172a; border: 1.5px solid #d97706; border-radius: 14px; padding: 1rem; margin-bottom: 1rem; text-align: center;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <span style="font-size: 1.2rem;">🇮🇳</span>
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: #f59e0b; margin: 0;">১. ভারতীয় ইউপিআই পেমেন্ট (GPay / PhonePe / Paytm / BHIM)</h4>
+          </div>
+          <p style="font-size: 0.78rem; color: #94a3b8; margin-bottom: 0.75rem;">
+            নিচের কিউআর কোড স্ক্যান করে অথবা সরাসরি UPI ID-তে <strong>₹২৯৯</strong> পাঠিয়ে পাস সক্রিয় করুন:
+          </p>
+
+          <!-- Real Scannable Google Pay QR Code -->
+          <div style="display: inline-block; background: #fff; padding: 6px; border-radius: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.5); margin-bottom: 0.75rem;">
+            <img src="ayan-googlepay-qr.jpg" alt="Ayan Kumar Ghosh Google Pay UPI QR" width="200" style="display: block; border-radius: 10px; max-width: 100%; height: auto;">
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; background: #1e293b; border: 1px solid #475569; padding: 0.5rem 0.75rem; border-radius: 8px; margin-bottom: 0.6rem;">
+            <div style="text-align: left;">
+              <div style="font-size: 0.68rem; color: #94a3b8;">Google Pay UPI ID:</div>
+              <div style="font-family: monospace; font-size: 0.88rem; font-weight: 800; color: #38bdf8;">ayanghosh75@oksbi</div>
+              <div style="font-size: 0.68rem; color: #64748b;">Payee: Ayan Kumar Ghosh</div>
+            </div>
+            <button id="btnCopyUpiScam" type="button" style="background: #f59e0b; color: #000; border: none; font-size: 0.75rem; font-weight: 800; padding: 0.4rem 0.75rem; border-radius: 6px; cursor: pointer; transition: background 0.2s;">
+              📋 Copy UPI
+            </button>
+          </div>
+
+          <!-- Direct mobile tap to pay -->
+          <a href="upi://pay?pa=ayanghosh75@oksbi&pn=Ayan%20Kumar%20Ghosh&am=299&cu=INR&tn=ScamShield%20Family%20Pass" style="display: block; background: #2563eb; color: #fff; font-size: 0.8rem; font-weight: 700; padding: 0.45rem; border-radius: 6px; text-decoration: none;">
+            📱 মোবাইলে সরাসরি Google Pay / UPI খুলুন
+          </a>
+        </div>
+
+        <!-- Payment Option 2: International / Card via Buy Me a Coffee -->
+        <div style="background: #0f172a; border: 1.5px solid #3b82f6; border-radius: 14px; padding: 1rem; margin-bottom: 1rem; text-align: center;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+            <span style="font-size: 1.2rem;">🌍</span>
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: #60a5fa; margin: 0;">২. International Card / PayPal / Buy Me a Coffee ($3.99)</h4>
+          </div>
+          <p style="font-size: 0.78rem; color: #94a3b8; margin-bottom: 0.75rem;">
+            Instant credit/debit card, Apple Pay, Google Pay or PayPal worldwide:
+          </p>
+          <a href="https://www.buymeacoffee.com/AyanKumarGhosh" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; background: #FFDD00; color: #000; font-weight: 800; padding: 0.65rem; border-radius: 8px; text-decoration: none; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(255, 221, 0, 0.3); box-sizing: border-box;">
+            <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy Me a Coffee" style="height: 20px;">
+            <span>Unlock via Buy Me a Coffee ($3.99)</span>
+          </a>
+        </div>
+
+        <!-- Activation Code -->
+        <div style="border-top: 1px solid #374151; padding-top: 0.85rem; text-align: center;">
+          <p style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.4rem;">ইতিমধ্যে পাসকোড পেয়েছেন? এখানে অ্যাক্টিভেট করুন:</p>
+          <div style="display: flex; gap: 0.5rem;">
+            <input type="text" id="vipCodeInput" placeholder="কোড লিখুন (যেমন: PARIVAR52)" style="flex: 1; padding: 0.5rem; border-radius: 8px; border: 1px solid #4b5563; background: #1f2937; color: #fff; text-transform: uppercase; font-size: 0.85rem;">
+            <button id="applyVipCodeBtn" style="background: #10b981; color: #fff; border: none; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 0.85rem;">সক্রিয় করুন</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>🛡️ <strong>ScamShield AI</strong> — Designed & Maintained by <strong>Ayan Kumar Ghosh</strong></p>
+      <p style="margin-top: 0.25rem;">সচেতন থাকুন, সুরক্ষিত থাকুন • জাতীয় সাইবার সহায়তা: <strong>1930</strong></p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
